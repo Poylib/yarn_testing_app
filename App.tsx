@@ -9,10 +9,15 @@ const App = () => {
     };
   });
 
+  const BtnFunc = () => {
+    console.log(offset.value);
+    offset.value = withTiming(Math.random() * 255);
+  };
+
   return (
     <SafeAreaView>
       <Animated.View style={[styles.box, animatedStyles]} />
-      <Button onPress={() => (offset.value = withTiming(Math.random() * 255))} title="Move" />
+      <Button onPress={BtnFunc} title="Move" />
     </SafeAreaView>
   );
 };
