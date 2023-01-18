@@ -1,8 +1,7 @@
-import { Button, SafeAreaView, StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated';
-const App = () => {
+const MoveAnimated = () => {
   const offset = useSharedValue(0);
-
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [{ translateX: offset.value }],
@@ -10,17 +9,17 @@ const App = () => {
   });
 
   const BtnFunc = () => {
-    console.log(offset.value);
-    offset.value = withTiming(Math.random() * 255);
+    offset.value = withSpring(Math.random() * 255);
   };
 
   return (
-    <SafeAreaView>
+    <>
       <Animated.View style={[styles.box, animatedStyles]} />
       <Button onPress={BtnFunc} title="Move" />
-    </SafeAreaView>
+    </>
   );
 };
+
 const styles = StyleSheet.create({
   box: {
     backgroundColor: 'blue',
@@ -29,5 +28,4 @@ const styles = StyleSheet.create({
     height: 100,
   },
 });
-
-export default App;
+export default MoveAnimated;
