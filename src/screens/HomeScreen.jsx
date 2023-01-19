@@ -4,10 +4,10 @@ import MoveAnimated from '../components/MoveAnimated';
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView>
+    <>
       <MoveAnimated />
       <MouseEvent />
-    </SafeAreaView>
+    </>
   );
 };
 
