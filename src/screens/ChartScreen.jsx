@@ -1,20 +1,23 @@
 import React from 'react';
 import { Svg, G, Rect, Line } from 'react-native-svg';
-import { BarChart, Grid } from 'react-native-svg-charts';
-
-const GRAPH_MARGIN = 13;
-const colors = {
-  axis: '#b82f2f',
-};
+import LineChart from '../components/Linechart';
 
 const ChartScreen = () => {
-  const fill = 'rgb(134, 65, 244)';
-  const data = [50, 10, 40, 95, -4, -24, null, 85, undefined, 0, 35, 53, -53, 24, 50, -20, -80];
-
   return (
-    <BarChart style={{ height: 200 }} data={data} svg={{ fill }} contentInset={{ top: 30, bottom: 30 }}>
-      <Grid />
-    </BarChart>
+    <LineChart //
+      containerHeight={300}
+      circleColor="#daa520"
+      axisColor="#9dd"
+      line_chart_data={[
+        { month: 'Jan', value: 300 },
+        { month: 'Feb', value: 400 },
+        { month: 'Mar', value: 500 },
+        { month: 'Apr', value: 610 },
+        { month: 'May', value: 400 },
+        { month: 'June', value: 520 },
+        { month: 'July', value: 640 },
+      ]}
+    />
   );
 };
 
