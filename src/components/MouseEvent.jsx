@@ -1,6 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { PanGestureHandler, TapGestureHandler } from 'react-native-gesture-handler';
-import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import {
+  GestureHandlerRootView,
+  PanGestureHandler,
+  TapGestureHandler,
+} from 'react-native-gesture-handler';
+import Animated, {
+  useAnimatedGestureHandler,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
 
 const MouseEvent = () => {
   const startingPosition = 100;
@@ -27,14 +37,22 @@ const MouseEvent = () => {
   const uas = useAnimatedStyle(() => {
     return {
       backgroundColor: pressed.value ? '#FEEF86' : '#001972',
-      transform: [{ translateX: x.value }, { translateY: y.value }, { scale: withSpring(pressed.value ? 1.2 : 1) }],
+      transform: [
+        { translateX: x.value },
+        { translateY: y.value },
+        { scale: withSpring(pressed.value ? 1.2 : 1) },
+      ],
     };
   });
 
   return (
-    <PanGestureHandler style={[styles.gestureView]} onGestureEvent={eventHandler}>
-      <Animated.View style={[styles.ball, uas]} />
-    </PanGestureHandler>
+    <GestureHandlerRootView>
+      <PanGestureHandler
+        style={[styles.gestureView]}
+        onGestureEvent={eventHandler}>
+        <Animated.View style={[styles.ball, uas]} />
+      </PanGestureHandler>
+    </GestureHandlerRootView>
   );
 };
 export default MouseEvent;

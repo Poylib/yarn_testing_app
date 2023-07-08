@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Dimensions, Animated, ScrollView } from 'react-native';
+import { View, Dimensions, Animated, ScrollView, Button } from 'react-native';
 import Svg, {
   G,
   Line,
@@ -12,6 +12,7 @@ import Svg, {
 import { styles } from '../style';
 import ConfigLine from './ConfigLIne';
 import LibLineChart from './LibLineChart';
+import { useNavigation } from '@react-navigation/native';
 
 const window_width = Dimensions.get('window').width;
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
@@ -30,6 +31,7 @@ const LineChart = ({
   axisLabelFontSize = 10,
 }) => {
   const [yAxisLables, setYAxisLabels] = useState([]);
+  const { navigate } = useNavigation();
   const marginFor_x_fromleft = 50;
   const marginFor_y_fromBottom = 50;
   const padding_from_screenBorder = 20;
@@ -224,6 +226,10 @@ const LineChart = ({
   return (
     <ScrollView>
       <View style={[styles.svgWrapper, { height: containerHeight }]}>
+        <Button
+          title="animated"
+          onPress={() => navigate('animatedStack', { screen: 'FlipCard' })}
+        />
         <AnimatedSvg height="100%" width="100%" style={styles.svgStyle}>
           {render_x_y_axis()}
           {render_x_axis_labels_and_ticks()}
