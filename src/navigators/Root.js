@@ -1,3 +1,4 @@
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeStack from './HomeStack';
 import AnimatedStack from './AnimatedStack';

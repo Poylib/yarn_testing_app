@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import MouseEvent from '../components/MouseEvent';
-import MoveAnimated from '../components/MoveAnimated';
+import MouseEvent from '../../components/MouseEvent';
+import MoveAnimated from '../../components/MoveAnimated';
 import Animated, {
   Easing,
   useAnimatedScrollHandler,
@@ -10,6 +10,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
+import Counter from './Counter';
+import CounterProvider from './CounterProvider';
 
 const HomeScreen = () => {
   const { navigate } = useNavigation();
@@ -59,9 +61,10 @@ const HomeScreen = () => {
   });
 
   return (
-    <>
+    <CounterProvider>
       <Animated.ScrollView scrollEventThrottle={16} onScroll={scrollHandler}>
         <Button onPress={() => navigate('Posting')} title="goToPostingScreen" />
+        <Counter />
         <View style={{ backgroundColor: '#a7A5E3', height: 700 }} />
         <View style={{ backgroundColor: '#a3e3e3', height: 700 }} />
         <View style={{ backgroundColor: '#6979BB', height: 700 }} />
@@ -72,7 +75,7 @@ const HomeScreen = () => {
       <Animated.View style={[styles.button, actionBarStyle]}>
         <Text style={styles.buttonText}>자세히 보기</Text>
       </Animated.View>
-    </>
+    </CounterProvider>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ChartScreen from '../screens/ChartScreen';
-import HomeScreen from '../screens/HomeScreen';
 import Animated from '../screens/FlipCard';
-import Posting from '../screens/Posting';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import Posting from '../screens/PostingScreen/Posting';
 const HomeStack = () => {
   const Stack = createNativeStackNavigator();
   return (

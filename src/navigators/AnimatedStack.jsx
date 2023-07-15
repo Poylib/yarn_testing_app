@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ChartScreen from '../screens/ChartScreen';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import FlipCard from '../screens/FlipCard';
 const AnimatedStack = () => {
   const Stack = createNativeStackNavigator();
