@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeStack from './HomeStack';
-import AnimatedStack from './AnimatedStack';
+import { LoginScreen } from '../screens/LoginScreen';
 
 const Root = () => {
   const Stack = createNativeStackNavigator();
@@ -12,12 +12,12 @@ const Root = () => {
         headerBackTitleVisible: false,
       }}>
       <Stack.Screen //
-        name="Home"
-        component={HomeStack}
+        name="Login"
+        component={LoginScreen}
       />
       <Stack.Screen //
-        name="animatedStack"
-        component={AnimatedStack}
+        name="Home"
+        component={HomeStack}
       />
     </Stack.Navigator>
   );
